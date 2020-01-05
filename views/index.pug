@@ -1,0 +1,25 @@
+doctype html
+html(lang='pt')
+  include common/header
+  +head("Carris UI")
+  body(style="height: 100vh; width: 100%;")
+    include common/navbar
+    //-
+      button(onclick=`encontrarEstacaoMaisProxima()`).btn.btn-primary <b>Estação mais próxima</b>
+      select(id='de' data-live-search="true").selectpicker
+        each estacao in estacoes
+          if estacao.isPublicVisible
+            option(value=estacao.id data-lat=estacao.lat, data-lng=estacao.lng) #{estacao.id} - #{estacao.name}
+      select(id='para' data-live-search="true").selectpicker
+        each estacao in estacoes
+          if estacao.isPublicVisible
+            option(value=estacao.id data-lat=estacao.lat, data-lng=estacao.lng) #{estacao.id} - #{estacao.name}
+      include common/mapa
+      p(id='estacao')
+    //
+    br
+    form(action="/paragem/", method="POST")
+      .input-group.mb-3
+        input(name="id", id="idParagem" type="text", placeholder="Insira o ID da estacao...").form-control
+        .input-group-append
+          button(type="submit").btn.btn-primary Ver Informação
