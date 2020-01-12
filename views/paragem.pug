@@ -9,7 +9,7 @@ html(lang='en')
             script.
                 console.log('Info: ', `#{infoParagem}`);
             if infoParagem !== '[]'
-                table(id="example" class="table table-striped table-bordered" style="width:100%")
+                table(id="paragem" class="table table-striped table-bordered" style="width:100%")
                     thead
                         tr
                             th Número do Autocarro
@@ -28,3 +28,11 @@ html(lang='en')
                                     a(href="../posicaoautocarro/" + info.routeNumber + "/" + info.plateNumber) Ver informação
             else
                 - swal("Erro!", "Não existem autocarros em direção a esta paragem", "warning");
+        script.
+            $(document).ready(function () {
+                $('#paragem').DataTable({
+                    "language": {
+                        "url": "/javascripts/Portuguese.json"
+                    }
+                });
+            });

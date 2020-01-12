@@ -22,7 +22,7 @@ exports.getEstacaoMaisProxima = function (lat, lon) {
     });
 };
 
-exports.getTodasEstacoes = function () {
+exports.getTodasParagens = function () {
     return new Promise(function (resolve, reject) {
         const request = require('request');
         const options = {
@@ -152,6 +152,32 @@ exports.getRota = function (idRota) {
             }
         };
 
+        request(
+            options,
+            (err, res, body) => {
+                if (err) return err;
+                try {
+                    resolve(JSON.parse(body));
+                } catch(e) {
+                    reject(e);
+                }
+            });
+    });
+};
+
+exports.getCaminho = function (latDe, lonDe, latPara, lonPara) {
+    let moment = require('moment');
+    let now = moment();
+    return new Promise(function (resolve, reject) {
+        const request = require('request');
+        const options = {
+            url: 'https://carris.tecmic.com/api/v2.6/Planner/startlat/' + latDe + '/startlon/' + lonDe + '/endLat/' + latPara + '/endLon/' + lonPara + '/start/' + now.format('YYYY-MM-DD HH:mm:ss') + '/language/pt',
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+            }
+        };
+        console.log(options);
         request(
             options,
             (err, res, body) => {

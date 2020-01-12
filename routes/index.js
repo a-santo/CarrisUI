@@ -13,6 +13,7 @@ router.get('/get/estacaomaisproxima/:lat/:lon', function (request, response) {
 });
 
 router.post('/paragem/', function (request, response) {
+    console.log(request);
     api.getInfoParagem(request.body.id).then(function(infoParagem) {
         response.render('paragem', { title: 'Informação da Paragem', infoParagem: infoParagem });
     });
@@ -35,6 +36,24 @@ router.get('/rota/:numRota', function (request, response) {
     api.getRota(request.params.numRota).then(function(infoRota) {
         console.log(infoRota);
         response.render('rota', { title: 'Informação sobre a rota ' + request.params.numRota, infoRota: infoRota });
+    });
+});
+
+router.get('/paragens/', function (request, response) {
+    api.getTodasParagens().then(function(paragens) {
+        response.render('paragens', { title: 'Paragens', paragens: paragens });
+    });
+});
+
+router.get('/planear', function(request, response) {
+    api.getTodasParagens().then(function(paragens) {
+        response.render('planear', { title: 'Planear Rota', paragens: paragens });
+    });
+});
+
+router.post('/calcular/:latDe/:lonDe/:latPara/:lonPara', function(request, response) {
+    api.getCaminho(request.params.latDe, request.params.lonDe, request.params.latPara, request.params.lonPara).then(function(rota) {
+        response.render('planeado', { title: 'Rota Calculada', rota: rota, gps: { lat: request.params.latDe, lon: request.params.lonDe }});
     });
 });
 
