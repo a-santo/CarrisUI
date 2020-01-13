@@ -1,25 +1,23 @@
 mixin head(title)
     head
-    meta(charset='utf-8')
+    meta(charset='utf-8' name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
     title=title
     //[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]
     //<base href="/">
     script(src="/javascripts/jquery-3.4.1.min.js")
     script(src="/javascripts/popper.min.js")
-    link(rel="stylesheet" href="/stylesheets/bootstrap.min.css")
     script(src="/javascripts/bootstrap.min.js")
     script(src='/javascripts/gps.js')
-    link(rel="stylesheet" href="/stylesheets/leaflet.css")
     script(src="/javascripts/leaflet.js")
-    link(rel="stylesheet" href="/stylesheets/bootstrap-select.min.css")
     script(src="/javascripts/bootstrap-select.min.js")
-    link(rel="stylesheet" href="/stylesheets/leaflet-routing-machine.css")
     script(src="/javascripts/leaflet-routing-machine.js")
-    link(rel="stylesheet" href="/stylesheets/Control.Geocoder.css")
     script(src="/javascripts/Control.Geocoder.min.js")
     script(src="/javascripts/leaflet-ant-path.js")
     script(src="/javascripts/sweetalert.min.js")
     script(src="/javascripts/jquery.dataTables.min.js")
     script(src="/javascripts/dataTables.bootstrap4.min.js")
-
-
+    link(rel="stylesheet" href="/stylesheets/bootstrap.min.css")
+    link(rel="stylesheet" href="/stylesheets/leaflet.css")
+    link(rel="stylesheet" href="/stylesheets/bootstrap-select.min.css")
+    link(rel="stylesheet" href="/stylesheets/leaflet-routing-machine.css")
+    link(rel="stylesheet" href="/stylesheets/Control.Geocoder.css")

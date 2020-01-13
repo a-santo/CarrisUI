@@ -2,7 +2,7 @@ div(id='mapa' style='height: 100vh; width: 100%;')
     if autocarro
         script.
             if(!`#{autocarro.lat}`) {
-                swal("Erro!", "Não foi possível localizar este autocarro", "error");
+                swal("Erro!", "Não foi possível localizar este autocarro.", "error");
             } else {
                 let mapa = L.map('mapa').setView([`#{autocarro.lat}`, `#{autocarro.lng}`], 20);
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

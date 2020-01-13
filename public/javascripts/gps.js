@@ -21,6 +21,13 @@ function encontrarParagemMaisProxima(elemento) {
             success: ((res) => {
                 elemento.val(res[0].id);
                 elemento.selectpicker('refresh');
+                let texto = "A paragem mais próxima de si é: " + res[0].name + "\n\n" + "Distância: " + res[0].distance + "km";
+                swal({
+                    title: "Paragem encontrada!",
+                    text: texto,
+                    icon: "success",
+                    html: true
+                });
             }),
             error: ((error) => {
                 console.log("Error:", error);

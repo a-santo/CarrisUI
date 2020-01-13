@@ -177,8 +177,7 @@ exports.getCaminho = function (latDe, lonDe, latPara, lonPara) {
                 'Accept': 'application/json',
             }
         };
-        console.log(options);
-        request(
+       request(
             options,
             (err, res, body) => {
                 if (err) return err;
@@ -190,6 +189,3 @@ exports.getCaminho = function (latDe, lonDe, latPara, lonPara) {
             });
     });
 };
-
-//https://carris.tecmic.com/api/v2.6/Routes/727 para ver a rota completa de um autocarro
-//curl -X GET "https://carris.tecmic.com/api/v2.6/Planner/startlat/38.723116/startlon/-9.132004/endLat/38.715277/endLon/-9.136012/start/2020-01-03%2019%3A03/language/pt" -H "accept: text/plain"

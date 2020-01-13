@@ -27,7 +27,6 @@ router.get('/posicaoautocarro/:numAuto/:matricula', function (request, response)
 
 router.get('/autocarros/', function (request, response) {
     api.getAutocarros().then(function(autocarros) {
-        console.log(autocarros);
         response.render('autocarros', { title: 'Informação de Autocarros', autocarros: autocarros });
     });
 });
@@ -53,7 +52,7 @@ router.get('/planear', function(request, response) {
 
 router.post('/calcular/:latDe/:lonDe/:latPara/:lonPara', function(request, response) {
     api.getCaminho(request.params.latDe, request.params.lonDe, request.params.latPara, request.params.lonPara).then(function(rota) {
-        response.render('planeado', { title: 'Rota Calculada', rota: rota, gps: { lat: request.params.latDe, lon: request.params.lonDe }});
+        response.render('planeado', { title: 'Rota Calculada', rota: rota, lat: request.params.latDe, lon: request.params.lonDe });
     });
 });
 

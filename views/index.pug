@@ -23,3 +23,6 @@ html(lang='pt')
         input(name="id", id="idParagem" type="text", placeholder="Insira o ID da estacao...").form-control
         .input-group-append
           button(type="submit").btn.btn-primary Ver Informação
+    br
+    p(id='estacao')
+    button(onclick=`encontrarParagemMaisProxima('$("#estacao")',true)`).btn.btn-primary <b>Estação mais próxima</b>
