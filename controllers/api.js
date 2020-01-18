@@ -47,7 +47,8 @@ exports.getTodasParagens = function () {
 };
 
 exports.getInfoParagem = function (idParagem) {
-    let moment = require('moment');
+    let moment = require('moment-timezone');
+    moment.tz.setDefault("Europe/Lisbon");
     moment.locale('pt');
     return new Promise(function (resolve, reject) {
         const request = require('request');
@@ -166,7 +167,8 @@ exports.getRota = function (idRota) {
 };
 
 exports.getCaminho = function (latDe, lonDe, latPara, lonPara) {
-    let moment = require('moment');
+    let moment = require('moment-timezone');
+    moment.tz.setDefault("Europe/Lisbon");
     let now = moment();
     return new Promise(function (resolve, reject) {
         const request = require('request');

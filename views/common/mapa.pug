@@ -8,52 +8,14 @@ div(id='mapa' style='height: 100vh; width: 100%;')
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(mapa);
-                L.marker([`#{autocarro.lat}`, `#{autocarro.lng}`]).addTo(mapa).bindTooltip("Autocarro: <b>#{autocarro.numAuto}</b><br>Matricula: <b>#{autocarro.matricula}</b><br>Última Atualização: #{autocarro.atualizado}");
+                L.marker([`#{autocarro.lat}`, `#{autocarro.lng}`]).addTo(mapa).bindTooltip("Autocarro: <b>#{autocarro.numAuto}</b><br>Matricula: <b>#{autocarro.matricula}</b><br>Última Atualização: #{autocarro.atualizado}", {direction: "top"}).openTooltip();
             }
-    else
+    else if infoParagem
         script.
-            var mapa = L.map('mapa').setView([38.736946, -9.142685], 13);
+            $('#mapa').css('height','100%');
+            var mapa = L.map('mapa').setView([#{lat}, #{lng}], 20);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(mapa);
-            L.marker([38.72391, -9.13204]).addTo(mapa);
-            L.marker([38.72391, -9.13204]).addTo(mapa);
-            L.marker([38.72635, -9.1327]).addTo(mapa);
-            L.marker([38.72558, -9.13509]).addTo(mapa);
-            L.marker([38.72212, -9.13544]).addTo(mapa);
-            L.marker([38.71916, -9.13574]).addTo(mapa);
-            L.marker([38.71493, -9.13646]).addTo(mapa);
-            let coordenadas = [
-                [38.72391, -9.13204],
-                [38.72391, -9.13203],
-                [38.72635, -9.1327],
-                [38.72558, -9.13509],
-                [38.72212, -9.13544],
-                [38.71916, -9.13574],
-                [38.71493, -9.13646]
-            ]
-            let caminho = L.polyline.antPath(coordenadas, {
-                    "delay": 400,
-                    "dashArray": [10, 20],
-                    "weight": 5,
-                    "color": "#0000FF",
-                    "pulseColor": "#FFFFFF",
-                    "paused": false,
-                    "reverse": false
-                }
-            ).addTo(mapa);
-            mapa.addLayer(caminho);
-            mapa.fitBounds(path.getBounds());
-            /*L.Routing.control({
-                waypoints: [
-                    L.latLng(38.72391, -9.13204),
-                    L.latLng(38.72391, -9.13203),
-                    L.latLng(38.72635, -9.1327),
-                    L.latLng(38.72558, -9.13509),
-                    L.latLng(38.72212, -9.13544),
-                    L.latLng(38.71916, -9.13574),
-                    L.latLng(38.71493, -9.13646)
-                ],
-                routeWhileDragging: true
-            }).addTo(mapa);
-             */
+            L.marker([#{lat}, #{lng}]).addTo(mapa);
+            L.marker([#{lat}, #{lng}]).addTo(mapa).bindTooltip("Paragem: <b>#{nomeParagem}</b>", {direction: "top"}).openTooltip();

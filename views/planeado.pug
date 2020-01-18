@@ -69,7 +69,7 @@ html(lang='pt')
                 div(class="modal-body" id="modalMapaConteudo")
                     div(id='mapa' style='height: 100vh; width: 100%;')
                 div(class="modal-footer")
-                    button(type="button" class="btn btn-secondary" data-dismiss="modal") Fechar
+                    button(type="button" class="btn btn-success btn-lg btn-block" data-dismiss="modal") Fechar
     script.
         $(document).ready(function () {
             $('.table').DataTable({
@@ -100,10 +100,9 @@ html(lang='pt')
             var idTabela = elemento.attr('data-idtabela');
             var pontos = $('#' + idTabela).data('coordenadas');
             var coordenadas = [];
-            mapa = L.map('mapa').setView([pontos[0].lat, pontos[0].lng], 13); //variavel global... por agora...
+            mapa = L.map('mapa').setView([pontos[0].lat, pontos[0].lng], 13);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(mapa);
             pontos.forEach(function (ponto) {
-                //L.marker([ponto.lat, ponto.lng]).addTo(mapa); //parece não deixar que se meta o ant path...
                 coordenadas.push([ponto.lat, ponto.lng]);
             });
             var caminho = L.polyline.antPath(coordenadas, {
@@ -118,8 +117,4 @@ html(lang='pt')
             ).addTo(mapa);
             mapa.addLayer(caminho);
             mapa.fitBounds(caminho.getBounds());
-            //TODO: talvez não seja necessário isto, já que carrego logo o modal?
-            /*setTimeout(function () {
-                mapa.invalidateSize()
-            }, 500);*/
         }

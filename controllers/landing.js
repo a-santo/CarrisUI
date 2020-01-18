@@ -1,7 +1,7 @@
-const api = require('../controllers/api');
-
 exports.index = function(req, res, next) {
-    api.getTodasParagens().then(function(estacoes) {
-        res.render('index', { title: 'CarrisUI', user: req.user, estacoes: estacoes});
-    });
+    res.render('index', { title: 'CarrisUI' });
+};
+
+exports.acerca = function (req, res, next) {
+    res.render('acerca', { title: 'CarrisUI' });
 };

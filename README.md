@@ -11,6 +11,13 @@ Carris UI is an interface for the API for Carris available at https://carris.tec
 * [leafletjs](https://leafletjs.com/)
 * [DataTables](https://datatables.net/)
 * [SweetAlert](https://sweetalert.js.org/)
+* [Font Awesome](https://fontawesome.com/)
 
-**Authors**: André Santo
+### Instalation & Start
+
+1. Clone the repository
+2. Run `npm install`
+3. Run `npm start`
+
+**Authors**: André Santo\
 **Project oriented by**: Professor Vitor Cardoso

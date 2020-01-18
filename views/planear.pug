@@ -17,7 +17,7 @@ html(lang='pt')
                                 if paragem.isPublicVisible
                                     option(value=paragem.id data-lat=paragem.lat, data-lng=paragem.lng) #{paragem.id} - #{paragem.name}
                     .col-md-4
-                        button(type='button' id='botaoDe').btn.btn-primary <b>Obter paragem mais próxima</b>
+                        button(type='button' id='botaoDe').btn.btn-primary <b>Encontrar paragem mais próxima</b>
                 br
                 .row
                     .col-md-1
@@ -28,7 +28,7 @@ html(lang='pt')
                                 if paragem.isPublicVisible
                                     option(value=paragem.id data-lat=paragem.lat, data-lng=paragem.lng) #{paragem.id} - #{paragem.name}
                     .col-md-4
-                        button(type='button' id='botaoPara').btn.btn-primary <b>Obter paragem mais próxima</b>
+                        button(type='button' id='botaoPara').btn.btn-primary <b>Encontrar paragem mais próxima</b>
                 br
                 button(type='submit', id='planear').btn.btn-primary <b>Procurar</b>
     script.

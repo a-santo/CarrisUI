@@ -1,14 +1,23 @@
 div(class="jumbotron text-center" style="margin-bottom:0")
-    h1 Carris UI - Uma interface para a rede de transportes da Carris
-nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
-    a(class="navbar-brand" href="/") Menu
+    i.fas.fa-bus.fa-2x
+    h3 Carris UI
+
+nav.navbar.sticky-top.navbar-expand-sm.bg-dark.navbar-dark
+    a(class="navbar-brand" href="/") Início &nbsp;
+        i.fas.fa-home
     button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
         span.navbar-toggler-icon
     div(class="collapse navbar-collapse" id="collapsibleNavbar")
         ul.navbar-nav
             li.nav-item
-                a(class="nav-link" href="/planear") Planear Viagem
+                a(class="nav-link" href="/planear") Planear Viagem &nbsp;
+                    i.fas.fa-road
             li.nav-item
-                a(class="nav-link" href="/autocarros") Autocarros
+                a(class="nav-link" href="/autocarros") Autocarros &nbsp;
+                    i.fas.fa-bus
             li.nav-item
-                a(class="nav-link" href="/paragens") Paragens
+                a(class="nav-link" href="/paragens") Paragens &nbsp;
+                    i.fas.fa-store-alt
+            li.nav-item
+                a(class="nav-link" href="/acerca") #[i(class='glyphicon glyphicon-fire')] Acerca &nbsp;
+                    i.fas.fa-question
